@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterDevProcurePolytronRolesTable070920261648 extends Migration
+class AlterDevProcurePolytronUnitsTable07092026XXXX extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class AlterDevProcurePolytronRolesTable070920261648 extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->string('code', 25)
+                ->default('');
 
             $table->string('name', 75)
                 ->default('');
 
-            $table->string('description', 255)
-                ->default('');
-
             $table->unique(
-                'name',
-                'roles_1_unique'
+                'code',
+                'units_1_unique'
             );
         });
     }
@@ -36,6 +36,6 @@ class AlterDevProcurePolytronRolesTable070920261648 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('units');
     }
 }
