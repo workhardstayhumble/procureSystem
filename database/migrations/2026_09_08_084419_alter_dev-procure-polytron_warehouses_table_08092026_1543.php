@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterDevProcurePolytronItemCategoriesTable080920260953 extends Migration
+class AlterDevProcurePolytronWarehousesTable080920261543 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AlterDevProcurePolytronItemCategoriesTable080920260953 extends Migration
      */
     public function up()
     {
-        Schema::create('item_categories', function (Blueprint $table) {
+        Schema::create('warehouses', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('code', 25)
@@ -22,12 +22,15 @@ class AlterDevProcurePolytronItemCategoriesTable080920260953 extends Migration
             $table->string('name', 75)
                 ->default('');
 
+            $table->string('location', 100)
+                ->default('');
+
             $table->boolean('is_active')
                 ->default(true);
 
             $table->unique(
                 'code',
-                'item_categories_1_unique'
+                'warehouses_1_unique'
             );
         });
     }
@@ -39,6 +42,6 @@ class AlterDevProcurePolytronItemCategoriesTable080920260953 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_categories');
+        Schema::dropIfExists('warehouses');
     }
 }
