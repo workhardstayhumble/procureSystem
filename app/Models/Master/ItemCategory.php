@@ -30,6 +30,9 @@ class ItemCategory extends Model
         'name',
         'is_active',
     ];
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
 
     /**
      * Get items by category.
