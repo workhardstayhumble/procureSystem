@@ -53,6 +53,6 @@ class AlterDevProcurePolytronItemsTable080920261851 extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warehouses');
+        Schema::dropIfExists('items');
     }
 }
