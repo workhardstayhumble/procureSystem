@@ -38,7 +38,7 @@ class Role extends Model
     public function users()
     {
         return $this->belongsToMany(
-            // User::class,    //09-07-2026 21:52   waiting for User model to be created
+            User::class,    
             'role_user',
             'role_id',
             'user_id'
